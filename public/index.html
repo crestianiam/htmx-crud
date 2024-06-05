@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMX</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"
+        integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <h1>HTMX</h1>
+    <div class="text-center">
+        <h1 class="font-bold my-4">
+            Testing Get Request
+        </h1>
+        <button hx-get="/users" hx-target="#users" hx-indicator="#loading" hx-vals='{"limit":"3"}'
+            class="bg-blue-500 text-white py-2 px-2 rounded-lg">Fetch
+            users
+        </button>
+        <div id="users" class="bg-lime-100"></div>
+        <span class="htmx-indicator" id="loading">
+            Loading...
+        </span>
+    </div>
+</body>
+
+</html>
