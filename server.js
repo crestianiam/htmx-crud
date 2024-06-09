@@ -14,9 +14,9 @@ app.use(express.json());
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const filePath = path.join(__dirname, 'data', 'events.json');
+const todosFilePath = path.join(__dirname, 'data', 'todos.json');
 
-const readData = () => {
+const readData = (filePath) => {
     if (!fs.existsSync(filePath)) {
         return [];
     }
@@ -27,11 +27,31 @@ const readData = () => {
     return JSON.parse(data);
 };
 
-const writeData = (data) => {
+const writeData = (data, filePath) => {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 };
 
-console.error(readData())
+app.get("/todos", async (req, res) => {
+    await sleep("500")
+    const todos = readData(todosFilePath);
+    res.send(`
+        <ul>
+          ${todos.map((todo) => `<li>${todo.name} - ${todo.description}</li>`).join('')}
+        </ul>
+      `);
+})
+app.post("/todos", (req, res) => {
+    const todo = req.body;
+    console.log(req.body)
+    const todos = readData(todosFilePath);
+    todos.push(todo);
+    writeData(todos, todosFilePath);
+    res.send(`
+        <ul>
+          ${todos.map((todo) => `<li>${todo.name} - ${todo.description}</li>`).join('')}
+        </ul>
+      `);
+})
 
 app.listen(3000, () => {
     console.log('Server listening on port 3000');
