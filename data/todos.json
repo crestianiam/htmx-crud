@@ -1,17 +1,12 @@
 [
-  {
-    "id": 0,
-    "name": "pulire",
-    "description": "desrzione pulire il 17"
-  },
-  {
-    "id": 1,
-    "name": "scrivere",
-    "description": "ecco ci qua a xserivere"
-  },
-  {},
-  {},
-  {},
-  {},
-  {}
+    {
+        "id": 0,
+        "name": "pulire",
+        "description": "desrzione pulire il 17"
+    },
+    {
+        "id": 1,
+        "name": "scrivere",
+        "description": "ecco ci qua a xserivere"
+    }
 ]
