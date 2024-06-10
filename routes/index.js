@@ -11,25 +11,39 @@ console.log(__dirname)
 const todosFilePath = path.join(__dirname, '..', 'data', 'todos.json');
 
 router.get("/todos", async (req, res) => {
-    await sleep("500")
-    const todos = readData(todosFilePath);
-    res.send(`
+  await sleep("500")
+  const todos = readData(todosFilePath);
+  res.send(`
         <ul>
-          ${todos.map((todo) => `<li>${todo.name} - ${todo.description}</li>`).join('')}
+          ${todos.map((todo) => `<li class="cursor-pointer underline">${todo.name} - ${todo.description}</li>`).join('')}
         </ul>
       `);
 })
+router.get('/todos/:id', (req, res) => {
+  const { id } = req.params;
+  const todos = readData(todosFilePath);
+  const todo = todos.find((todo) => todo.id === Number(id));
+
+  res.send(`
+    <h2>${todo.name}</h2>
+    <p><strong>Name:</strong> ${todo.name}</p>
+    <p><strong>Description:</strong> ${todo.description}</p>
+  `);
+});
+
 router.post("/todos", (req, res) => {
-    const todo = req.body;
-    console.log(req.body)
-    const todos = readData(todosFilePath);
-    todos.push(todo);
-    writeData(todos, todosFilePath);
-    res.send(`
+  const todo = req.body;
+  console.log(req.body)
+  const todos = readData(todosFilePath);
+  todos.push(todo);
+  writeData(todos, todosFilePath);
+  res.send(`
         <ul>
-          ${todos.map((todo) => `<li>${todo.name} - ${todo.description}</li>`).join('')}
+          ${todos.map((todo) => `<li class="cursor-pointer underline">${todo.name} - ${todo.description}</li>`).join('')}
         </ul>
       `);
 })
+
+
 
 export default router;
