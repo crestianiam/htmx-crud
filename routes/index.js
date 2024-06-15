@@ -19,6 +19,8 @@ router.get("/todos", async (req, res) => {
         </ul>
       `);
 })
+let x = 3
+
 router.get('/todos/:id', (req, res) => {
   const { id } = req.params;
   const todos = readData(todosFilePath);
