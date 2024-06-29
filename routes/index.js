@@ -15,11 +15,22 @@ router.get("/todos", async (req, res) => {
   const todos = readData(todosFilePath);
   res.send(`
         <ul>
-          ${todos.map((todo) => `<li class="cursor-pointer underline">${todo.name} - ${todo.description}</li>`).join('')}
+          ${todos.map((todo) => `
+            <li class="flex items-center justify-between">
+            <p class="cursor-pointer underline">${todo.name} - ${todo.description}</p>
+            <div>
+            <button class="bg-blue-500 text-white py-2 px-2 rounded-lg mt-2">
+              edit 
+            </button>
+            <button class="bg-red-500 text-white py-2 px-2 rounded-lg mt-2">
+              delete 
+            </button>
+            </div>
+            </li>
+            `).join('')}
         </ul>
       `);
 })
-let x = 3
 
 router.get('/todos/:id', (req, res) => {
   const { id } = req.params;
