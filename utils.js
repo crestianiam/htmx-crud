@@ -14,7 +14,7 @@ export function sleep(delay) {
  * @param {string} filePath 
  * @returns 
  */
-export const readData = (filePath) => {
+export const readJSONFromFile = (filePath) => {
     if (!fs.existsSync(filePath)) {
         return [];
     }
@@ -30,10 +30,11 @@ export const readData = (filePath) => {
  * @param {object} data 
  * @param {string} filePath 
  */
-export const writeData = (data, filePath) => {
+export const writeJSONToFile = (data, filePath) => {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 };
 
-export const deleteItem = (currentList, itToDelete) => {
+/* export const deleteItem = (currentList, itToDelete) => {
 
 }
+ */

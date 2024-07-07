@@ -6,7 +6,7 @@ import path from "path";
  * @param {string} folderPath 
  * @param {string} fileName 
  */
-export const initPersistance = (folderPath, fileName) => {
+export const init = (folderPath, fileName) => {
     const filePath = path.join(folderPath, fileName);
 
     // folder verification

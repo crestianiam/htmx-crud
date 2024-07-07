@@ -1,12 +1,12 @@
 import express from "express";
 import router from "./routes/index.js";
-import { initPersistance } from "./persistance/index.js";
+import { init } from "./persistance/index.js";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 //init file used for storing data
-initPersistance(process.env.DATA_FOLDER_PATH, process.env.DATA_FILE);
+init(process.env.DATA_FOLDER_PATH, process.env.DATA_FILE);
 
 const PORT = process.env.PORT;
 const app = express();

@@ -1,0 +1,8 @@
+<li class="flex items-center justify-between" id="{{ todo.id }}">
+    <p class="cursor-pointer underline">{{ todo.name }} - {{ todo.description }}</p>
+    <div>
+        <button class="bg-blue-500 text-white py-2 px-2 rounded-lg mt-2">edit</button>
+        <button class="bg-blue-500 text-white py-2 px-2 rounded-lg mt-2" hx-delete="/todos/{{ todo.id }}"
+            hx-target="#myListContent">delete</button>
+    </div>
+</li>
