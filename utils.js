@@ -34,3 +34,6 @@ export const writeData = (data, filePath) => {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 };
 
+export const deleteItem = (currentList, itToDelete) => {
+
+}

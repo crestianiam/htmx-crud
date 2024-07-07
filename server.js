@@ -1,8 +1,15 @@
 import express from "express";
 import router from "./routes/index.js";
+import { initPersistance } from "./persistance/index.js";
+import dotenv from "dotenv";
 
+dotenv.config();
+
+//init file used for storing data
+initPersistance(process.env.DATA_FOLDER_PATH, process.env.DATA_FILE);
+
+const PORT = process.env.PORT;
 const app = express();
-
 //middleware di express
 // set static folder
 app.use(express.static('public'));
@@ -13,6 +20,7 @@ app.use(express.json());
 
 app.use('/', router);
 
-app.listen(3000, () => {
-    console.log('Server listening on port 3000');
+
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
 });
