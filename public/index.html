@@ -16,8 +16,8 @@
 <body class="m-2">
     <h1 class="text-2xl text-center">Todo list with HTMX and express</h1>
     <section class="mt-5">
-        <div class="grid grid-cols-2">
-            <div class="border-r-2 border-black">
+        <div class="grid grid-cols-3">
+            <div class="border-r-2 border-black col-span-2">
                 <h2 class="text-2xl border-black border-b-2">my list</h2>
                 <div id="myListContent" hx-get="/todos" hx-trigger="load" hx-indicator="#loading">
                     <span class="htmx-indicator" id="loading">
@@ -27,7 +27,7 @@
             </div>
 
             <div>
-                <h2 class="text-2xl border-black border-b-2">single item</h2>
+                <h2 class="text-2xl border-black border-b-2">actions</h2>
                 <div id="itemContent" class="grid gap-6 ml-2 mb-6">
                     <button type="submit" class="bg-blue-500 text-white py-2 px-2 rounded-lg mt-2" hx-get="/todos/new"
                         hx-target="#itemContent">
