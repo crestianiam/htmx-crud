@@ -14,6 +14,7 @@ This is a work-in-progress project that I am using to experiment with htmx and N
 
 ## Setup
 The project requires environment variables to function properly. In the repository, you will find a file named **TEMPLATE_VARS** that describes the necessary variables. Rename this file to **.env** and then assign the required values to the environment variables. The variable names are self-explanatory.
+Change the variables value and and remove the asterisks at the beginning and end of the variable, used only as a visual help.
 
 ## Usage
 `npm run dev` for starting the project
