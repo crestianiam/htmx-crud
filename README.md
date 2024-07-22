@@ -8,8 +8,8 @@ This is a work-in-progress project that I am using to experiment with HTMX and E
 - npm
 
 ## Installation
-```git clone https://github.com/crestianiam/htmx-crud.git```
-```cd htmx-crud```
+```git clone https://github.com/crestianiam/htmx-crud.git```<br/>
+```cd htmx-crud```<br/>
 ```npm i```
 
 ## Setup
